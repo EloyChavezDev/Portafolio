@@ -48,10 +48,10 @@ export default function Home() {
 					and I work as a systems assistant at{" "}
 					<Link
 						target="_blank"
-						href="https://unkey.dev"
+						href="https://uca.edu.mx/"
 						className="underline duration-500 hover:text-zinc-300"
 					>
-						UCA University ()
+						UCA University
 					</Link>{" "}
 					.
 				</h2>
