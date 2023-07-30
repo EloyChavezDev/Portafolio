@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 
 type Props = {
-	project: {
+	blog: {
 		url?: string;
 		title: string;
 		description: string;
@@ -13,21 +13,21 @@ type Props = {
 
 	views: number;
 };
-export const Header: React.FC<Props> = ({ project, views }) => {
+export const Header: React.FC<Props> = ({ blog, views }) => {
 	const ref = useRef<HTMLElement>(null);
 	const [isIntersecting, setIntersecting] = useState(true);
 
 	const links: { label: string; href: string }[] = [];
-	if (project.repository) {
+	if (blog.repository) {
 		links.push({
 			label: "GitHub",
 			href: `https://github.com/${project.repository}`,
 		});
 	}
-	if (project.url) {
+	if (blog.url) {
 		links.push({
 			label: "Website",
-			href: project.url,
+			href: blog.url,
 		});
 	}
 	useEffect(() => {
@@ -97,7 +97,7 @@ export const Header: React.FC<Props> = ({ project, views }) => {
 					</div>
 
 					<Link
-						href="/projects"
+						href="/blog"
 						className={`duration-200 hover:font-medium ${
 							isIntersecting
 								? " text-zinc-400 hover:text-zinc-100"
