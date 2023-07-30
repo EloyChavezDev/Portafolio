@@ -19,6 +19,7 @@ export default async function BlogsPage() {
 		acc[allBlogs[i].slug] = v ?? 0;
 		return acc;
 	}, {} as Record<string, number>);
+	
 	const featured = allBlogs.find((blog) => blog.slug === "unkey")!;
 	const top2 = allBlogs.find((blog) => blog.slug === "planetfall")!;
 	const top3 = allBlogs.find((blog) => blog.slug === "highstorm")!;
