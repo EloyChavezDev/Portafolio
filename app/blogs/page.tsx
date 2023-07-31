@@ -13,7 +13,7 @@ export const revalidate = 60;
 export default async function BlogsPage() {
 	const views = (
 		await redis.mget<number[]>(
-			...allBlogs.map((b) => ["pageviews", "blogs", b.slug].join(":")),
+			...allBlogs.map((l) => ["pageviews", "blogs", l.slug].join(":")),
 		)
 	).reduce((acc, v, i) => {
 		acc[allBlogs[i].slug] = v ?? 0;
@@ -24,7 +24,7 @@ export default async function BlogsPage() {
 	const top2 = allBlogs.find((blog) => blog.slug === "planetfall")!;
 	const top3 = allBlogs.find((blog) => blog.slug === "highstorm")!;
 	const sorted = allBlogs
-		.filter((b) => b.published)
+		.filter((l) => b.published)
 		.filter(
 			(blog) =>
 				blog.slug !== featured.slug &&
@@ -32,8 +32,8 @@ export default async function BlogsPage() {
 				blog.slug !== top3.slug,
 		)
 		.sort(
-			(a, c) =>
-				new Date(c.date ?? Number.POSITIVE_INFINITY).getTime() -
+			(a, b) =>
+				new Date(b.date ?? Number.POSITIVE_INFINITY).getTime() -
 				new Date(a.date ?? Number.POSITIVE_INFINITY).getTime(),
 		);
 
