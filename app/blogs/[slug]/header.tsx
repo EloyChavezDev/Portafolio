@@ -21,7 +21,7 @@ export const Header: React.FC<Props> = ({ blog, views }) => {
 	if (blog.repository) {
 		links.push({
 			label: "GitHub",
-			href: `https://github.com/${project.repository}`,
+			href: `https://github.com/${blog.repository}`,
 		});
 	}
 	if (blog.url) {
@@ -97,7 +97,7 @@ export const Header: React.FC<Props> = ({ blog, views }) => {
 					</div>
 
 					<Link
-						href="/blog"
+						href="/blogs"
 						className={`duration-200 hover:font-medium ${
 							isIntersecting
 								? " text-zinc-400 hover:text-zinc-100"
@@ -112,10 +112,10 @@ export const Header: React.FC<Props> = ({ blog, views }) => {
 				<div className="mx-auto max-w-7xl px-6 lg:px-8 text-center flex flex-col items-center">
 					<div className="mx-auto max-w-2xl lg:mx-0">
 						<h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl font-display">
-							{project.title}
+							{blog.title}
 						</h1>
 						<p className="mt-6 text-lg leading-8 text-zinc-300">
-							{project.description}
+							{blog.description}
 						</p>
 					</div>
 

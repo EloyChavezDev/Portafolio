@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { allProjects } from "contentlayer/generated";
+import { allBlogs } from "contentlayer/generated";
 import { Mdx } from "@/app/components/mdx";
 import { Header } from "./header";
 import "./mdx.css";
@@ -17,9 +17,9 @@ type Props = {
 const redis = Redis.fromEnv();
 
 export async function generateStaticParams(): Promise<Props["params"][]> {
-	return allProjects
-		.filter((p) => p.published)
-		.map((p) => ({
+	return allBlogs
+		.filter((b) => b.published)
+		.map((b) => ({
 			slug: p.slug,
 		}));
 }
