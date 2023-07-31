@@ -24,7 +24,7 @@ export default async function BlogsPage() {
 	const top2 = allBlogs.find((blog) => blog.slug === "planetfall")!;
 	const top3 = allBlogs.find((blog) => blog.slug === "highstorm")!;
 	const sorted = allBlogs
-		.filter((l) => b.published)
+		.filter((l) => l.published)
 		.filter(
 			(blog) =>
 				blog.slug !== featured.slug &&
