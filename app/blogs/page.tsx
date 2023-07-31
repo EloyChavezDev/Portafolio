@@ -32,9 +32,9 @@ export default async function BlogsPage() {
 				blog.slug !== top3.slug,
 		)
 		.sort(
-			(a, b) =>
-				new Date(b.date ?? Number.POSITIVE_INFINITY).getTime() -
-				new Date(a.date ?? Number.POSITIVE_INFINITY).getTime(),
+			(f, g) =>
+				new Date(g.date ?? Number.POSITIVE_INFINITY).getTime() -
+				new Date(f.date ?? Number.POSITIVE_INFINITY).getTime(),
 		);
 
 	return (
