@@ -32,8 +32,8 @@ export default async function BlogsPage() {
 				blog.slug !== top3.slug,
 		)
 		.sort(
-			(a, b) =>
-				new Date(b.date ?? Number.POSITIVE_INFINITY).getTime() -
+			(a, c) =>
+				new Date(c.date ?? Number.POSITIVE_INFINITY).getTime() -
 				new Date(a.date ?? Number.POSITIVE_INFINITY).getTime(),
 		);
 
