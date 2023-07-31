@@ -15,9 +15,9 @@ export default async function BlogsPage() {
 		await redis.mget<number[]>(
 			...allBlogs.map((l) => ["pageviews", "blogs", l.slug].join(":")),
 		)
-	).reduce((acc, v, i) => {
-		acc[allBlogs[i].slug] = v ?? 0;
-		return acc;
+	).reduce((ac, w, h) => {
+		ac[allBlogs[h].slug] = w ?? 0;
+		return ac;
 	}, {} as Record<string, number>);
 	
 	const featured = allBlogs.find((blog) => blog.slug === "unkey")!;
